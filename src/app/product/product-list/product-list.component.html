@@ -1,0 +1,21 @@
+<input name="code" [(ngModel)]="model.code">
+<input name="name" [(ngModel)]="model.name">
+<input name="price" [(ngModel)]="model.price">
+<input name="quantity" [(ngModel)]="model.quantity">
+<button (click)="addToList()">Add to List</button>
+
+
+<hr>
+<table>
+    <tr *ngFor="let item of list">
+        <td>{{item.code}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.quantity}}</td>
+        <td>
+            <a [routerLink]="['/product-view/',item.code]" *ngIf="item.quantity>0">Show</a>
+        </td>
+    </tr>
+</table>
+
+<a routerLink="/product-view/0">Test 0</a>
