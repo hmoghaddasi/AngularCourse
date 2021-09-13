@@ -7,6 +7,7 @@ import { RestService } from 'src/app/core/service/rest.service';
 })
 
 export class LocationService {
+
    needUpdateList = new Subject<boolean>();
 
   constructor(
@@ -17,5 +18,7 @@ export class LocationService {
  public getProvince():any{
     return this.restService.get('Province');
   }
-
+  getCity(province: number):any {
+    return this.restService.getById('City', province);
+  }
 }

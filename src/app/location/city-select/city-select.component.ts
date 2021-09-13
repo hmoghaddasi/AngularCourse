@@ -12,15 +12,22 @@ export class CitySelectComponent implements OnInit {
   locations= [];
   @Input() selectedCity: number;
   @Output() selectedCityChange = new EventEmitter<number>();
+
+  @Input() set province(value: number){
+    if(value){
+      this.getAllCity(value);
+    }
+  }
+
   subscriptions = new Subscription();
-  constructor(private service: LocationService) { }
+  constructor(private service: LocationService) {   
+   }
  
   ngOnInit() {
-   this.getAll();
   }
-  getAll(){
+  getAllCity(province){
     this.locations=[];
-    this.service.getProvince().subscribe((res) => {
+    this.service.getCity(province).subscribe((res) => {
       this.locations = [...this.locations, ...res];
     });
   }

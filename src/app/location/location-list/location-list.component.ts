@@ -10,6 +10,7 @@ import { LocationService } from '../shared/location.service';
 export class LocationListComponent implements OnInit {
   result: any;
   currentProvinceId:number;
+  currentCityId:number;
   subscriptions=new Subscription();
   clickCount=0;
   constructor(

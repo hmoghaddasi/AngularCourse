@@ -1,8 +1,12 @@
 <div class="container">
     <app-province-select [(selectedProvince)]="currentProvinceId"></app-province-select>
+    <app-city-select [province]="currentProvinceId" [(selectedCity)]="currentCityId"></app-city-select>
     <div class="d-flex justify-content-center justify-align-items">
         <h5 class="alert alert-danger text-center" *ngIf="!currentProvinceId">استانی انتخاب نشده است</h5>
         <h5 class="alert alert-success text-center" *ngIf="currentProvinceId">آی دی استان انتخاب شده {{currentProvinceId}}</h5>
+        <h5 class="alert alert-danger text-center" *ngIf="!currentCityId">شهری انتخاب نشده است</h5>
+        <h5 class="alert alert-success text-center" *ngIf="currentCityId">آی دی شهر انتخاب شده {{currentCityId}}</h5>
+  
     </div>
  
 </div>
