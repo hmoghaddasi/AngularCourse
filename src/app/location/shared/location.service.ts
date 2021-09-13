@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { RestService } from 'src/app/core/service/rest.service';
 
 @Injectable({
@@ -6,6 +7,7 @@ import { RestService } from 'src/app/core/service/rest.service';
 })
 
 export class LocationService {
+   needUpdateList = new Subject<boolean>();
 
   constructor(
       private restService: RestService
