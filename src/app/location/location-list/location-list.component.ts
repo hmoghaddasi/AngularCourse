@@ -20,7 +20,6 @@ export class LocationListComponent implements OnInit {
   ngOnInit() {
   }
   getData() {
-    debugger;
     this.service.getProvince().subscribe(result=>{
       this.result=result;
     })
