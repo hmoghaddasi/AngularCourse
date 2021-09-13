@@ -1,0 +1,8 @@
+<ng-select 
+[items]="locations" 
+bindLabel="Name" 
+bindValue="LocationId" 
+[(ngModel)]="selectedCity" 
+(change)="selected()"
+appendTo="body">
+</ng-select>

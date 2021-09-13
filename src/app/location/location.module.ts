@@ -6,11 +6,12 @@ import { ProvinceSelectComponent } from './province-select/province-select.compo
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { LocationCreateComponent } from './location-create/location-create.component';
+import { CitySelectComponent } from './city-select/city-select.component';
 
 
 
 @NgModule({
-  declarations: [ LocationListComponent, ProvinceSelectComponent, LocationCreateComponent],
+  declarations: [ LocationListComponent, ProvinceSelectComponent, LocationCreateComponent, CitySelectComponent],
   imports: [
     CommonModule,
     LocationRoutingModule,
