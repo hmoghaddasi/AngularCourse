@@ -8,11 +8,10 @@ import { LocationService } from '../shared/location.service';
 })
 export class LocationListComponent implements OnInit {
   result: any;
-
+  currentProvinceId:number;
   constructor(
     private service: LocationService
   ) { 
-
     this.getData();
 
   }
