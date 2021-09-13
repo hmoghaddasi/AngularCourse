@@ -1,8 +1,3 @@
-<ng-select [items]="cars" 
-           bindLabel="name" 
-           bindValue="id" 
-           [(ngModel)]="selectedCar">
+<ng-select [items]="locations" bindLabel="Name" bindValue="LocationId" [(ngModel)]="selectedProvince" (change)="selected()"
+    appendTo="body">
 </ng-select>
-
-
-{{selectedCar}}

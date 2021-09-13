@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { LocationService } from '../shared/location.service';
 
 @Component({
   selector: 'app-province-select',
@@ -6,18 +8,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./province-select.component.css']
 })
 export class ProvinceSelectComponent implements OnInit {
-  cars: { id: number; name: string; }[];
-
-  constructor() { }
-
-  selectedCar: number;
+  locations= [];
+  @Input() selectedProvince: number;
+  @Output() selectedProvinceChange = new EventEmitter<number>();
+  subscriptions = new Subscription();
+  constructor(private service: LocationService) { }
+ 
   ngOnInit() {
-    this.cars = [
-        { id: 1, name: 'Volvo' },
-        { id: 2, name: 'Saab' },
-        { id: 3, name: 'Opel' },
-        { id: 4, name: 'Audi' },
-    ];
+   this.getAll();
+  }
+  getAll(){
+    this.locations=[];
+    this.service.getProvince().subscribe((res) => {
+      this.locations = [...this.locations, ...res];
+    });
   }
 
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  selected() {
+    this.selectedProvinceChange.emit(this.selectedProvince);
+    // this.service.needCityUpdate.next(this.selectedProvince);
+  }
 }
