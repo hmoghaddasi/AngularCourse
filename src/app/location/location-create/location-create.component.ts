@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocationModel } from '../shared/location.model';
 import { LocationService } from '../shared/location.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { LocationService } from '../shared/location.service';
   styleUrls: ['./location-create.component.css']
 })
 export class LocationCreateComponent implements OnInit {
-
+  model=new LocationModel();
   constructor(
     private service: LocationService
   ) { }
@@ -16,7 +17,9 @@ export class LocationCreateComponent implements OnInit {
   }
 
   save(){
-    this.service.needUpdateList.next(true);
+    this.service.create(this.model).subscribe(res=>{
+      this.service.needUpdateList.next(true);
+    })
   }
 
 }
