@@ -21,6 +21,10 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () => import('./location/location.module').then(m => m.LocationModule)
+      },
+      {
+        path: '',
+        loadChildren: () => import('./auth/authentication.module').then(m => m.AuthenticationModule)
       }
     ]
   }
