@@ -12,7 +12,7 @@ export class CitySelectComponent implements OnInit {
   locations= [];
   @Input() selectedCity: number;
   @Output() selectedCityChange = new EventEmitter<number>();
-
+ @Input() title:string;
   @Input() set province(value: number){
     if(value){
       this.getAllCity(value);

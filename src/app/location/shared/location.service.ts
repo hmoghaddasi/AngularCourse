@@ -20,7 +20,7 @@ export class LocationService {
     return this.restService.get('Province');
   }
   getCity(province: number):any {
-    return this.restService.getById('City', province);
+    return this.restService.getById('City',province );
   }
   create(model: LocationModel) {
     return this.restService.post('Location', model);

@@ -24,7 +24,7 @@ export class RestService {
         return this.http.get<TResonse>(this.getUrl(resource), this.createHeaders());
     }
     public getById<TResonse>(resource: string, id: number): any {
-        return this.http.get<TResonse>(`${environment.baseUrl}${resource}?id=` + id, this.createHeaders());
+        return this.http.get<TResonse>(`${environment.baseUrl}${resource}?provinceId=` + id, this.createHeaders());
     }
     public post<TResonse>(resource: string, model: any): Observable<TResonse> {
         return this.http.post<TResonse>(this.getUrl(resource), model, this.createHeaders());

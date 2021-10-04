@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { LocationModel } from '../shared/location.model';
 import { LocationService } from '../shared/location.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { LocationService } from '../shared/location.service';
   styleUrls: ['./province-select.component.css']
 })
 export class ProvinceSelectComponent implements OnInit {
-  locations= [];
+  locations: any=[];
   @Input() selectedProvince: number;
   @Output() selectedProvinceChange = new EventEmitter<number>();
   subscriptions = new Subscription();
