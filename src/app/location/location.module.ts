@@ -7,6 +7,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { LocationCreateComponent } from './location-create/location-create.component';
 import { CitySelectComponent } from './city-select/city-select.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 
@@ -16,7 +17,14 @@ import { CitySelectComponent } from './city-select/city-select.component';
     CommonModule,
     LocationRoutingModule,
     NgSelectModule,
-    FormsModule
+    FormsModule,    
+    ModalModule.forChild(),
+  ],
+  exports:[
+    LocationCreateComponent
+  ],
+  entryComponents:[
+    LocationCreateComponent
   ]
 })
 export class LocationModule { }

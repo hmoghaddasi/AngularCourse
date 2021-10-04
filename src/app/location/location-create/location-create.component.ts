@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { LocationModel } from '../shared/location.model';
 import { LocationService } from '../shared/location.service';
 
@@ -8,9 +9,12 @@ import { LocationService } from '../shared/location.service';
   styleUrls: ['./location-create.component.css']
 })
 export class LocationCreateComponent implements OnInit {
+  
+  @Input() editModel: LocationModel;
   model=new LocationModel();
   constructor(
-    private service: LocationService
+    private service: LocationService,
+    private modalRef: BsModalRef
   ) { }
 
   ngOnInit() {
