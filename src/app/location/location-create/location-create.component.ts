@@ -12,18 +12,32 @@ export class LocationCreateComponent implements OnInit {
   
   @Input() editModel: LocationModel;
   model=new LocationModel();
+  editMode: boolean;
   constructor(
     private service: LocationService,
     private modalRef: BsModalRef
   ) { }
 
   ngOnInit() {
+    if(this.editModel){
+      this.model=this.editModel;
+      this.editMode=true;
+    }
   }
 
   save(){
-    this.service.create(this.model).subscribe(res=>{
-      this.service.needUpdateList.next(true);
-    })
+    if(!this.editMode){
+      this.service.create(this.model).subscribe(res=>{
+        this.service.needUpdateList.next(true);
+        this.modalRef.hide();
+      })
+    }else{
+      this.service.edit(this.model).subscribe(res=>{
+        this.service.needUpdateList.next(true);
+        this.modalRef.hide();
+      })
+    }
+  
   }
 
 }

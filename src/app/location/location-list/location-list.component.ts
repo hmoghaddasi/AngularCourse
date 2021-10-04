@@ -24,7 +24,8 @@ export class LocationListComponent implements OnInit {
     this.getData();
     this.subscriptions = service.needUpdateList.subscribe(res => {
       if (res) {
-        this.clickCount++;
+        // this.clickCount++;
+        this.getData();
       }
     });
   }
@@ -51,4 +52,15 @@ create(){
   };
   this.modalRef = this.modalService.show(LocationCreateComponent, config);
 }
+
+edit(model){
+  const config: ModalOptions = {
+    initialState: {
+      editModel: model
+    },
+    class: 'modal-width-medium',
+  };
+  this.modalRef = this.modalService.show(LocationCreateComponent, config);
+}
+
 }

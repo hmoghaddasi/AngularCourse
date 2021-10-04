@@ -10,7 +10,6 @@ import { LocationModel } from './location.model';
 export class LocationService {
 
    needUpdateList = new Subject<boolean>();
-
   constructor(
       private restService: RestService
   ) {
@@ -25,5 +24,7 @@ export class LocationService {
   create(model: LocationModel) {
     return this.restService.post('Location', model);
   }
-
+  edit(model: LocationModel) {
+    return this.restService.put('Location', model);
+  }
 }

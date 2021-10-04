@@ -29,7 +29,11 @@
         <tr *ngFor="let item of result; let i=index">
             <td class="text-center m-1">{{i}}</td>
             <td class="text-center m-1">{{item.Name}}</td>
-            <td class="text-center m-1"> <span class="btn btn-danger" (click)="delete(i)">حدف</span></td>
+            <td class="text-center m-1">
+                 <button class="btn btn-danger" (click)="delete(i)">حدف</button>
+                 <button class="btn btn-danger" (click)="edit(item)">ویرایش</button>
+                
+                </td>
         </tr>
     </table>
 </div>
